@@ -97,9 +97,10 @@ public class DesignAndOrderTacosBrowserTest {
 
     WebElement wrapGroup = browser.findElement(By.cssSelector("div.ingredient-group#wraps"));
     List<WebElement> wraps = wrapGroup.findElements(By.tagName("div"));
-    assertThat(wraps.size()).isEqualTo(2);
+    assertThat(wraps.size()).isEqualTo(3);
     assertIngredient(wrapGroup, 0, "FLTO", "Flour Tortilla");
     assertIngredient(wrapGroup, 1, "COTO", "Corn Tortilla");
+    assertIngredient(wrapGroup, 2, "SEAW", "Seaweed");
 
     WebElement proteinGroup = browser.findElement(By.cssSelector("div.ingredient-group#proteins"));
     List<WebElement> proteins = proteinGroup.findElements(By.tagName("div"));
@@ -130,6 +131,7 @@ public class DesignAndOrderTacosBrowserTest {
   private void fillInAndSubmitOrderForm() {
     assertThat(browser.getCurrentUrl()).startsWith(orderDetailsPageUrl());
     fillField("input#deliveryName", "Ima Hungry");
+    fillField("input#deliveryNickName", "Hungry");
     fillField("input#deliveryStreet", "1234 Culinary Blvd.");
     fillField("input#deliveryCity", "Foodsville");
     fillField("input#deliveryState", "CO");

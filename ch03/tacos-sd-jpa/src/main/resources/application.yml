@@ -1,4 +1,10 @@
 spring:
   datasource:
-    generate-unique-name: false
-    name: tacocloud
+    # File-based H2 so data survives restarts (stored in ./data/tacocloud.mv.db)
+    url: jdbc:h2:file:./data/tacocloud
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      # keep existing tables/rows instead of dropping them on shutdown
+      ddl-auto: update

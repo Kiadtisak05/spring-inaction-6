@@ -23,6 +23,7 @@ public class OrderRepositoryTests {
   public void saveOrderWithTwoTacos() {
     TacoOrder order = new TacoOrder();
     order.setDeliveryName("Test McTest");
+    order.setDeliveryNickName("Testy");
     order.setDeliveryStreet("1234 Test Lane");
     order.setDeliveryCity("Testville");
     order.setDeliveryState("CO");
@@ -48,6 +49,7 @@ public class OrderRepositoryTests {
         
     TacoOrder fetchedOrder = orderRepo.findById(savedOrder.getId()).get();
     assertThat(fetchedOrder.getDeliveryName()).isEqualTo("Test McTest");
+    assertThat(fetchedOrder.getDeliveryNickName()).isEqualTo("Testy");
     assertThat(fetchedOrder.getDeliveryStreet()).isEqualTo("1234 Test Lane");
     assertThat(fetchedOrder.getDeliveryCity()).isEqualTo("Testville");
     assertThat(fetchedOrder.getDeliveryState()).isEqualTo("CO");
